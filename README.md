@@ -6,6 +6,7 @@
 * ```dotnet new gitignore```
 * ```cd MinimalApiSample```
 * ```dotnet add package Swashbuckle.AspNetCore```
+* ```dotnet add package Swashbuckle.AspNetCore.Annotations```
 
 ## Executando o Projeto
 
