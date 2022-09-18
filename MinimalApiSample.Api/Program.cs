@@ -45,9 +45,9 @@ app.MapPost("api/v1/customer",
         ServiceSample serviceSample,
         Customer customer
     ) =>
-    serviceSample.CreateCustomer(customer.Nome, customer.Email))
+    Results.Created("", serviceSample.CreateCustomer(customer.Nome, customer.Email)))
     .WithTags("Customers")
-    .Produces(201)
-    .ProducesProblem(500);
+    .Produces<CreatedResult>(StatusCodes.Status201Created)
+    .ProducesProblem(StatusCodes.Status500InternalServerError);
 
 app.Run();
