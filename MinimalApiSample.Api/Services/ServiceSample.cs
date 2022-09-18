@@ -21,9 +21,9 @@ public record Customer(
 
 public class ServiceSample
 {
-    public Customer CreateCustomer(string nome, string? email)
+    public CreatedResult CreateCustomer(string nome, string? email)
     {
-        return new Customer(nome, $"{email ?? nome.ToLower().Replace(" ", string.Empty)}.email");
+        return new CreatedResult() { Message = $"{nome} - {email ?? nome.ToLower().Replace(" ", string.Empty)}.email" };
     }
 
     public Customer GetCustomer(string nome, string? email)
@@ -33,6 +33,11 @@ public class ServiceSample
 }
 
 public class BadRequestResult
+{
+    public string Message { get; set; } = string.Empty;
+}
+
+public class CreatedResult
 {
     public string Message { get; set; } = string.Empty;
 }

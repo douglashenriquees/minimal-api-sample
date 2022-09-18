@@ -41,7 +41,7 @@ app.MapGet("api/v1/customer/all",
     .WithTags("Customers");
 
 app.MapPost("api/v1/customer",
-    [SwaggerOperation(Description = "Add a new Customer")][SwaggerResponse(201, "Created")][SwaggerResponse(500, "Some Failure")][SwaggerResponse(400, "Bad Request", typeof(BadRequestResult))] (
+    [SwaggerOperation(Description = "Add a new Customer")][SwaggerResponse(201, "Created", typeof(CreatedResult))][SwaggerResponse(500, "Some Failure")][SwaggerResponse(400, "Bad Request", typeof(BadRequestResult))] (
         ServiceSample serviceSample,
         Customer customer
     ) =>
